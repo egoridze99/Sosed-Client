@@ -1,0 +1,20 @@
+<div class="row mt-5">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i>  Вход</h1>
+      <% include ./partials/messages %>
+      <form action="/users/loginCheck" method="POST">
+        <div class="form-group">
+          <label for="email">Номер</label>
+          <input
+            id="tel"
+            name="tel"
+            class="form-control"
+            placeholder="Введите номер"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Войти</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <p class="navbar-brand mt-3">Здравствуйте, <%= user.buyer.name %> </p>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link pointer" href="/users/logout">Выйти из системы</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row mt-3">
+      <div class="col-md-4">
+        <p class="user-data">Пользователь: <%=user.buyer.name %></p>
+      </div>
+      <div class="col-md-4">
+        <p class="user-data">Номер: <%=user.telefoneNumber %></p>
+      </div>
+      <div class="col-md-4">
+        <p class="user-data">До бесплатного: <%=user.free %>Л</p>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12 m-auto">
+        <div class="card card-body" id="transactions">
+          <div class="row border-bottom">
+            <div class="col-md-2">
+              <p class="black bold">Продавец</p>
+            </div>
+            <div class="col-md-2">
+              <p class="black bold">Дата</p>
+            </div>
+            <div class="col-md-2">
+              <p class="black bold">Литры</p>
+            </div>
+            <div class="col-md-2">
+              <p class="black bold">Сумма</p>
+            </div>
+            <div class="col-md-2">
+              <p class="black bold">Бесплатный литр</p>
+            </div>
+          </div>
+          <div class="wrapper">
+              <% transactions.forEach(function(transaction){ %>
+                <div class="row border-bottom">
+                    <div class="col-md-2">
+                        <p class="mt-3 black"><%= transaction.saler.name + ' ' + transaction.saler.surname%></p>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="mt-3 black"><%= transaction.dateString %></p>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="mt-3 black"><%= transaction.litres %></p>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="mt-3 black"><%= transaction.totalSum %></p>
+                    </div>
+                    <div class="col-md-2">
+                        <p class="mt-3 black"><%= transaction.getFree === true ? 'Да' : 'Нет'%></p>
+                    </div>
+                </div>
+                <% }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
